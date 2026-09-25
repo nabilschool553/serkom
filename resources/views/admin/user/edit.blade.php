@@ -1,0 +1,83 @@
+@extends('layouts.template')
+
+@section('content')
+<div class="container-fluid px-4 py-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="m-0 font-weight-bold text-primary">Edit Data User</h5>
+            <a href="{{ route('admin.user.index') }}" class="btn btn-secondary btn-sm">Kembali</a>
+        </div>
+        <div class="card-body">
+            @if ($errors->any())
+                <div class="alert alert-danger mb-3">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('admin.user.update', $user->id_user) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <div class="row">
+                    <!-- Name -->
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $user->name) }}" placeholder="Masukkan Nama Lengkap" required>
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <!-- Username -->
+                    <div class="col-md-6 mb-3">
+                        <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
+                        <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username', $user->username) }}" placeholder="Masukkan Username" required>
+                        @error('username')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Password -->
+                    <div class="col-md-6 mb-3">
+                        <label for="password" class="form-label">Password Baru <small class="text-muted">(Kosongkan jika tidak ingin diubah)</small></label>
+                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password Baru">
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <!-- Password Confirmation -->
+                    <div class="col-md-6 mb-3">
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password Baru</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Ulangi Password Baru">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Role -->
+                    <div class="col-md-6 mb-3">
+                        <label for="role" class="form-label">Role / Hak Akses <span class="text-danger">*</span></label>
+                        <select name="role" id="role" class="form-select @error('role') is-invalid @enderror" required>
+                            <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="operator" {{ old('role', $user->role) == 'operator' ? 'selected' : '' }}>Operator</option>
+                        </select>
+                        @error('role')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 mt-3">
+                    <button type="submit" class="btn btn-primary">Perbarui User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection

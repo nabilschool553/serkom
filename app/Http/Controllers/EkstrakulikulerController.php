@@ -13,7 +13,7 @@ class EkstrakulikulerController extends Controller
     public function index()
     {
         //
-        return view('admin.ekstrakulikuler');
+        return view('admin.ekstrakulikuler.index');
     }
 
     /**
