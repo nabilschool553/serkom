@@ -20,59 +20,48 @@
 
             <form action="{{ route('admin.user.store') }}" method="POST">
                 @csrf
-                <div class="row">
-                    <!-- Name -->
-                    <div class="col-md-6 mb-3">
-                        <label for="name" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Masukkan Nama Lengkap" required>
-                        @error('name')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
 
-                    <!-- Username -->
-                    <div class="col-md-6 mb-3">
-                        <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
-                        <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="Masukkan Username" required>
-                        @error('username')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                <!-- Name -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Masukkan Nama Lengkap" required>
+                    @error('name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <div class="row">
-                    <!-- Password -->
-                    <div class="col-md-6 mb-3">
-                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password" required>
-                        @error('password')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Password Confirmation -->
-                    <div class="col-md-6 mb-3">
-                        <label for="password_confirmation" class="form-label">Konfirmasi Password <span class="text-danger">*</span></label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Ulangi Password" required>
-                    </div>
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
+                    <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="Masukkan Username" required>
+                    @error('username')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <div class="row">
-                    <!-- Role -->
-                    <div class="col-md-6 mb-3">
-                        <label for="role" class="form-label">Role / Hak Akses <span class="text-danger">*</span></label>
-                        <select name="role" id="role" class="form-select @error('role') is-invalid @enderror" required>
-                            <option value="" disabled selected>-- Pilih Role --</option>
-                            <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
-                            <option value="operator" {{ old('role') == 'operator' ? 'selected' : '' }}>Operator</option>
-                        </select>
-                        @error('role')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                    <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password" required>
+                    @error('password')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <div class="d-flex justify-content-end gap-2 mt-3">
+                <!-- Role -->
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role / Hak Akses <span class="text-danger">*</span></label>
+                    <select name="role" id="role" class="form-select @error('role') is-invalid @enderror" required>
+                        <option value="" disabled selected>-- Pilih Role --</option>
+                        <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                        <option value="operator" {{ old('role') == 'operator' ? 'selected' : '' }}>Operator</option>
+                    </select>
+                    @error('role')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 mt-4">
                     <button type="reset" class="btn btn-light border">Reset</button>
                     <button type="submit" class="btn btn-primary">Simpan User</button>
                 </div>

@@ -2,9 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ekstrakulikuler extends Model
 {
     //
+    use HasFactory;
+
+    protected $table = 'ekstrakulikulers';
+
+    protected $fillable = [
+        'nama_ekstrakulikuler',
+        'pembina',
+        'deskripsi',
+        'foto',
+    ];
 }

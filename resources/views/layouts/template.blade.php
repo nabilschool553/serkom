@@ -432,32 +432,32 @@
             Dashboard
         </a>
 
-        <a href="{{ route('guru') }}">
+        <a href="{{ route('admin.guru.index') }}">
             <i class="fa-solid fa-chalkboard-user"></i>
             Data Guru
         </a>
 
-        <a href="{{ route('siswa') }}">
+        <a href="{{ route('admin.siswa.index') }}">
             <i class="fa-solid fa-users"></i>
             Data Siswa
         </a>
 
-        <a href="{{ route('user') }}">
+        <a href="{{ route('admin.user.index') }}">
             <i class="fa-solid fa-users"></i>
             Data User
         </a>
 
-        <a href="{{ route('berita') }}">
+        <a href="{{ route('admin.berita.index') }}">
             <i class="fa-solid fa-newspaper"></i>
             Kelola Berita
         </a>
 
-        <a href="{{ route('ekstrakulikuler') }}">
+        <a href="{{ route('admin.ekstrakulikuler.index') }}">
             <i class="fa-solid fa-basketball"></i>
             Ekstrakurikuler
         </a>
 
-        <a href="{{ route('galeri') }}">
+        <a href="{{ route('admin.galeri.index') }}">
             <i class="fa-solid fa-images"></i>
             Galeri
         </a>
@@ -485,7 +485,7 @@
             </div>
         </div>
         <!-- Admin -->
-        <a href="{{ route('Profile') }}" class="admin-box">
+        <a href="{{ route('admin.profil.index') }}" class="admin-box">
             <div class="admin-avatar">
                 A
             </div>
@@ -506,40 +506,40 @@
             <a href="{{ route('dashboard') }}" class="">
                 <i class="fa-solid fa-chart-pie"></i>
                 <span>
-                    Ringkasan
+                    Dashboard
                 </span>
             </a>
-            <a href="{{ route('guru') }}">
+            <a href="{{ route('admin.guru.index') }}">
                 <i class="fa-solid fa-chalkboard-user"></i>
                 <span>
                     Data Guru
                 </span>
             </a>
-            <a href="{{ route('siswa') }}">
+            <a href="{{ route('admin.siswa.index') }}">
                 <i class="fa-solid fa-users"></i>
                 <span>
                     Data Siswa
                 </span>
             </a>
-            <a href="{{ route('user') }}">
+            <a href="{{ route('admin.user.index') }}">
                 <i class="fa-solid fa-users"></i>
                 <span>
                     Data User
                 </span>
             </a>
-            <a href="{{ route('berita') }}">
+            <a href="{{ route('admin.berita.index') }}">
                 <i class="fa-solid fa-newspaper"></i>
                 <span>
                     Kelola Berita
                 </span>
             </a>
-            <a href="{{ route('ekstrakulikuler') }}">
+            <a href="{{ route('admin.ekstrakulikuler.index') }}">
                 <i class="fa-solid fa-basketball"></i>
                 <span>
                     Ekstrakurikuler
                 </span>
             </a>
-            <a href="{{ route('galeri') }}">
+            <a href="{{ route('admin.galeri.index') }}">
                 <i class="fa-solid fa-images"></i>
                 <span>
                     Galeri
@@ -547,12 +547,12 @@
             </a>
         </nav>
         <!-- Logout -->
-        <div class="logout-area">
-            <button class="logout-btn">
-                <i class="fa-solid fa-right-from-bracket me-2"></i>
+        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-outline-danger btn-sm">
                 Logout
             </button>
-        </div>
+        </form>
     </aside>
     <!-- =========================
          MAIN CONTENT

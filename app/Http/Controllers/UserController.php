@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -28,40 +28,35 @@ class UserController extends Controller
         $request->validate([
             'name'     => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users,username',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
             'role'     => 'required|in:admin,operator',
         ]);
 
         User::create([
             'name'     => $request->name,
             'username' => $request->username,
-            'role'     => $request->role,
             'password' => Hash::make($request->password),
+            'role'     => $request->role,
         ]);
 
         return redirect()->route('admin.user.index')->with('success', 'User berhasil ditambahkan!');
     }
 
     // EDIT (Form Edit)
-    public function edit(User $user)
+    public function edit($id)
     {
+        $user = User::where('id_user', $id)->firstOrFail();
         return view('admin.user.edit', compact('user'));
     }
 
     // UPDATE (Simpan Perubahan)
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $id)
     {
         $request->validate([
-            'name'     => 'required|string|max:255',
-            'username' => [
-                'required',
-                'string',
-                'max:255',
-                // Baris ini memberitahu Laravel untuk mengabaikan user ini berdasarkan kolom 'id_user'
-                Rule::unique('users', 'username')->ignore($user->id_user, 'id_user'),
-            ],
-            'password' => 'nullable|string|min:6|confirmed',
-            'role'     => 'required|in:admin,operator',
+        'name'     => 'required|string|max:255',
+        'username' => 'required|string|max:255|unique:users,username,' . $id . ',id_user',
+        'password' => 'nullable|string|min:6',
+        'role'     => 'required|in:admin,operator',
         ]);
 
         $data = [
@@ -83,7 +78,13 @@ class UserController extends Controller
     // DELETE (Hapus Data)
     public function destroy(User $user)
     {
+        // Cegah menghapus user yang sedang login
+        if (Auth::user()->id_user == $user->id_user) {
+        return redirect()->back()->with('error', 'Anda tidak bisa menghapus akun yang sedang Anda gunakan saat ini!');
+        }
+
         $user->delete();
-        return redirect()->route('admin.user.index')->with('success', 'User berhasil dihapus!');
+
+        return redirect()->back()->with('success', 'User berhasil dihapus!');
     }
-}
+}    

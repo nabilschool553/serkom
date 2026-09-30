@@ -1,12 +1,11 @@
 @extends('layouts.template')
-
 @section('content')
 <div class="container-fluid px-4 py-4">
     <div class="card shadow-sm border-0">
         <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-            <h5 class="m-0 font-weight-bold text-primary">Data Guru</h5>
-            <a href="{{ route('admin.guru.create') }}" class="btn btn-primary btn-sm">
-                <i class="fas fa-plus"></i> Tambah Guru
+            <h5 class="m-0 font-weight-bold text-primary">Data Siswa</h5>
+            <a href="{{ route('admin.siswa.create') }}" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Tambah Siswa
             </a>
         </div>
         <div class="card-body">
@@ -22,33 +21,31 @@
                     <thead class="table-light">
                         <tr>
                             <th width="50" class="text-center">No</th>
-                            <th width="80" class="text-center">Foto</th>
-                            <th>Nama Guru</th>
-                            <th>NIP</th>
-                            <th>Mata Pelajaran</th>
+                            <th>NISN</th>
+                            <th>Nama Siswa</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Tahun Masuk</th>
                             <th width="150" class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($gurus as $key => $guru)
+                        @forelse ($siswas as $key => $siswa)
                             <tr>
-                                <td class="text-center">{{ $gurus->firstItem() + $key }}</td>
-                                <td class="text-center">
-                                    @if($guru->foto)
-                                        <img src="{{ asset('storage/' . $guru->foto) }}" alt="Foto Guru" width="50" height="50" class="rounded-circle object-fit-cover">
-                                    @else
-                                        <span class="badge bg-secondary">No Photo</span>
-                                    @endif
+                                <td class="text-center">{{ $siswas->firstItem() + $key }}</td>
+                                <td>{{ $siswa->nisn }}</td>
+                                <td>{{ $siswa->nama_siswa }}</td>
+                                <td>
+                                    <span class="badge {{ $siswa->jk == 'Laki-laki' ? 'bg-info' : 'bg-danger' }}">
+                                        {{ $siswa->jk }}
+                                    </span>
                                 </td>
-                                <td>{{ $guru->nama_guru }}</td>
-                                <td>{{ $guru->nip }}</td>
-                                <td>{{ $guru->mapel }}</td>
+                                <td>{{ $siswa->tahun_masuk }}</td>
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center gap-1">
-                                        <a href="{{ route('admin.guru.edit', $guru->id) }}" class="btn btn-warning btn-sm text-white">
+                                        <a href="{{ route('admin.siswa.edit', $siswa->id) }}" class="btn btn-warning btn-sm text-white">
                                             Edit
                                         </a>
-                                        <form action="{{ route('admin.guru.destroy', $guru->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data guru ini?');">
+                                        <form action="{{ route('admin.siswa.destroy', $siswa->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus siswa ini?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
@@ -58,7 +55,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center text-muted py-3">Data guru belum tersedia.</td>
+                                <td colspan="6" class="text-center text-muted py-3">Data siswa belum tersedia.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -66,7 +63,7 @@
             </div>
 
             <div class="d-flex justify-content-end mt-3">
-                {{ $gurus->links() }}
+                {{ $siswas->links() }}
             </div>
         </div>
     </div>
