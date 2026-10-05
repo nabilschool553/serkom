@@ -65,7 +65,7 @@ class GaleriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Galeri $galeri)
+    public function edit(Galeri $galeri, $id)
     {
         //
         $galeri = Galeri::findOrFail($id);
@@ -75,7 +75,7 @@ class GaleriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Galeri $galeri)
+    public function update(Request $request, Galeri $galeri, $id)
     {
         //
         $galeri = Galeri::findOrFail($id);

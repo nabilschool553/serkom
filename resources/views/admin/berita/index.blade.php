@@ -24,7 +24,8 @@
                             <th width="50" class="text-center">No</th>
                             <th width="100" class="text-center">Gambar</th>
                             <th>Judul</th>
-                            <th>Isi Ringkas</th>
+                            <th>Isi Berita</th>
+                            <th>Penulis</th>
                             <th class="text-center">Tanggal</th>
                             <th width="150" class="text-center">Aksi</th>
                         </tr>
@@ -44,6 +45,7 @@
                                 </td>
                                 <td>{{ $berita->judul }}</td>
                                 <td>{{ Str::limit(strip_tags($berita->isi), 50) }}</td>
+                                <td>{{ $berita->user->name ?? 'Tidak diketahui' }}</td>
                                 <td class="text-center">{{ date('d-m-Y', strtotime($berita->tanggal)) }}</td>
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center gap-1">

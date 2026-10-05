@@ -21,36 +21,32 @@
             <form action="{{ route('admin.user.store') }}" method="POST">
                 @csrf
 
-                <!-- Name -->
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                    <label for="name" class="form-label">Nama Lengkap </label>
                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Masukkan Nama Lengkap" required>
                     @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <!-- Username -->
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
+                    <label for="username" class="form-label">Username </label>
                     <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="Masukkan Username" required>
                     @error('username')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <!-- Password -->
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                    <label for="password" class="form-label">Password </label>
                     <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password" required>
                     @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <!-- Role -->
                 <div class="mb-3">
-                    <label for="role" class="form-label">Role / Hak Akses <span class="text-danger">*</span></label>
+                    <label for="role" class="form-label">Role / Hak Akses </label>
                     <select name="role" id="role" class="form-select @error('role') is-invalid @enderror" required>
                         <option value="" disabled selected>-- Pilih Role --</option>
                         <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>

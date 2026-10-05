@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ekstrakulikuler;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EkstrakulikulerController extends Controller
 {
@@ -33,22 +34,24 @@ class EkstrakulikulerController extends Controller
     {
         //
         $request->validate([
-            'nama_ekstrakulikuler' => 'required|string|max:100',
-            'pembina'              => 'required|string|max:100',
-            'deskripsi'            => 'required|string',
-            'foto'                 => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'nama_eskul' => 'required|string|max:100',
+            'pembina'    => 'required|string|max:100',
+            'jadwal'     => 'required|string|max:100',
+            'deskripsi'  => 'required|string',
+            'gambar'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $fotoPath = null;
-        if ($request->hasFile('foto')) {
-            $fotoPath = $request->file('foto')->store('ekstrakulikuler', 'public');
+        $gambarPath = null;
+        if ($request->hasFile('gambar')) {
+            $gambarPath = $request->file('gambar')->store('ekstrakulikuler', 'public');
         }
 
         ekstrakulikuler::create([
-            'nama_ekstrakulikuler' => $request->nama_ekstrakulikuler,
-            'pembina'              => $request->pembina,
-            'deskripsi'            => $request->deskripsi,
-            'foto'                 => $fotoPath,
+            'nama_eskul'    => $request->nama_eskul,
+            'pembina'       => $request->pembina,
+            'jadwal'        => $request->jadwal,
+            'deskripsi'     => $request->deskripsi,
+            'gambar'        => $gambarPath,
         ]);
 
         return redirect()->route('admin.ekstrakulikuler.index')->with('success', 'Data ekstrakulikuler berhasil ditambahkan!');
@@ -69,9 +72,9 @@ class EkstrakulikulerController extends Controller
     public function edit(ekstrakulikuler $ekstrakulikuler, $id)
     {
         //
-        $ekstrakulikuler = ekstrakulikuler::findOrFail($id);
+        $ekstrakulikuler = ekstrakulikuler::where('id_ekstrakulikuler', $id)->firstOrFail();
         return view('admin.ekstrakulikuler.edit', compact('ekstrakulikuler'));
-    }
+}
 
     /**
      * Update the specified resource in storage.
@@ -82,24 +85,25 @@ class EkstrakulikulerController extends Controller
         $ekstrakulikuler = ekstrakulikuler::findOrFail($id);
 
         $request->validate([
-            'nama_ekstrakulikuler' => 'required|string|max:100',
+            'nama_eskul'           => 'required|string|max:100',
             'pembina'              => 'required|string|max:100',
+            'jadwal'               => 'required|string|max:100',
             'deskripsi'            => 'required|string',
-            'foto'                 => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gambar'               => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $data = [
-            'nama_ekstrakulikuler' => $request->nama_ekstrakulikuler,
+            'nama_eskul'           => $request->nama_eskul,
             'pembina'              => $request->pembina,
+            'jadwal'               => $request->jadwal,
             'deskripsi'            => $request->deskripsi,
         ];
 
-        if ($request->hasFile('foto')) {
-            // Hapus foto lama jika ada
-            if ($ekstrakulikuler->foto && Storage::disk('public')->exists($ekstrakulikuler->foto)) {
-                Storage::disk('public')->delete($ekstrakulikuler->foto);
+        if ($request->hasFile('gambar')) {
+            if ($ekstrakulikuler->gambar && Storage::disk('public')->exists($ekstrakulikuler->gambar)) {
+                Storage::disk('public')->delete($ekstrakulikuler->gambar);
             }
-            $data['foto'] = $request->file('foto')->store('ekstrakulikuler', 'public');
+            $data['gambar'] = $request->file('gambar')->store('ekstrakulikuler', 'public');
         }
 
         $ekstrakulikuler->update($data);
@@ -115,8 +119,8 @@ class EkstrakulikulerController extends Controller
         //
         $ekstrakulikuler = ekstrakulikuler::findOrFail($id);
 
-        if ($ekstrakulikuler->foto && Storage::disk('public')->exists($ekstrakulikuler->foto)) {
-            Storage::disk('public')->delete($ekstrakulikuler->foto);
+        if ($ekstrakulikuler->gambar && Storage::disk('public')->exists($ekstrakulikuler->gambar)) {
+            Storage::disk('public')->delete($ekstrakulikuler->gambar);
         }
 
         $ekstrakulikuler->delete();

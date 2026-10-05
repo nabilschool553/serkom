@@ -24,7 +24,7 @@ class Berita extends Model
         'isi',
         'tanggal',
         'gambar',
-        'id_user',
+        'id_user'
     ];
 
     public function user()

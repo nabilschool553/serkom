@@ -12,34 +12,30 @@
                 @csrf
                 @method('PUT')
 
-                <!-- Nama Guru -->
                 <div class="mb-3">
-                    <label for="nama_guru" class="form-label font-weight-bold">Nama Guru <span class="text-danger">*</span></label>
+                    <label for="nama_guru" class="form-label font-weight-bold">Nama Guru </label>
                     <input type="text" name="nama_guru" id="nama_guru" maxlength="40" class="form-control @error('nama_guru') is-invalid @enderror" value="{{ old('nama_guru', $guru->nama_guru) }}" required>
                     @error('nama_guru')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <!-- NIP -->
                 <div class="mb-3">
-                    <label for="nip" class="form-label font-weight-bold">NIP <span class="text-danger">*</span></label>
+                    <label for="nip" class="form-label font-weight-bold">NIP </label>
                     <input type="text" name="nip" id="nip" maxlength="15" class="form-control @error('nip') is-invalid @enderror" value="{{ old('nip', $guru->nip) }}" required>
                     @error('nip')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <!-- Mapel -->
                 <div class="mb-3">
-                    <label for="mapel" class="form-label font-weight-bold">Mata Pelajaran <span class="text-danger">*</span></label>
+                    <label for="mapel" class="form-label font-weight-bold">Mata Pelajaran </label>
                     <input type="text" name="mapel" id="mapel" maxlength="40" class="form-control @error('mapel') is-invalid @enderror" value="{{ old('mapel', $guru->mapel) }}" required>
                     @error('mapel')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <!-- Foto -->
                 <div class="mb-3">
                     <label for="foto" class="form-label font-weight-bold">Foto Guru</label>
                     @if($guru->foto)

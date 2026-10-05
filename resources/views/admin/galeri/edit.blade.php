@@ -24,27 +24,24 @@
                 @method('PUT')
 
                 <div class="row">
-                    {{-- Judul Galeri --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Judul *</label>
+                        <label class="form-label font-weight-bold">Judul </label>
                         <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $galeri->judul) }}" maxlength="50" required>
                         @error('judul')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Tanggal --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Tanggal *</label>
+                        <label class="form-label font-weight-bold">Tanggal </label>
                         <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" value="{{ old('tanggal', $galeri->tanggal) }}" required>
                         @error('tanggal')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Kategori (Foto / Video) --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Kategori *</label>
+                        <label class="form-label font-weight-bold">Kategori </label>
                         <select name="kategori" class="form-select @error('kategori') is-invalid @enderror" required>
                             <option value="foto" {{ old('kategori', $galeri->kategori) == 'foto' ? 'selected' : '' }}>Foto</option>
                             <option value="video" {{ old('kategori', $galeri->kategori) == 'video' ? 'selected' : '' }}>Video</option>
@@ -54,7 +51,6 @@
                         @enderror
                     </div>
 
-                    {{-- Upload File / Preview --}}
                     <div class="col-12 mb-3">
                         <label class="form-label font-weight-bold">File Saat Ini & Ubah File</label>
                         <div class="mb-2">
@@ -73,10 +69,9 @@
                         @enderror
                     </div>
 
-                    {{-- Keterangan --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Keterangan *</label>
-                        <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" rows="4" required>{{ old('keterangan', $galeri->keterangan) }}</textarea>
+                        <label class="form-label font-weight-bold">Keterangan </label>
+                        <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" rows="4">{{ old('keterangan', $galeri->keterangan) }}</textarea>
                         @error('keterangan')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

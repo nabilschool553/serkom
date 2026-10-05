@@ -19,25 +19,21 @@
         <div class="card-body">
             @if($profil)
                 <div class="row">
-                    {{-- Logo & Foto --}}
                     <div class="col-12 mb-4 text-center">
                         <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
-                            @if($profil->logo)
-                                <div>
-                                    <small class="text-muted d-block mb-1">Logo Sekolah</small>
-                                    <img src="{{ asset('storage/' . $profil->logo) }}" alt="Logo" class="img-thumbnail" style="height: 120px; object-fit: contain;">
-                                </div>
-                            @endif
+                            
                             @if($profil->foto)
                                 <div>
-                                    <small class="text-muted d-block mb-1">Foto Sampul / Kepala Sekolah</small>
-                                    <img src="{{ asset('storage/' . $profil->foto) }}" alt="Foto" class="img-thumbnail" style="height: 120px; object-fit: cover;">
+                                    <img src="{{ asset('storage/' . $profil->foto) }}" alt="Foto" class="img-thumbnail" style="height: 300px; object-fit: cover;">
                                 </div>
                             @endif
                         </div>
                     </div>
-
-                    {{-- Detail Informasi (Sejajar ke bawah) --}}
+                    @if($profil->logo)
+                        <div>
+                            <img src="{{ asset('storage/' . $profil->logo) }}" alt="Logo" class="img-thumbnail" style="height: 120px; object-fit: contain;">
+                        </div>
+                    @endif
                     <div class="col-12 mb-3">
                         <label class="font-weight-bold text-muted small d-block">NAMA SEKOLAH</label>
                         <h5 class="text-dark">{{ $profil->nama_sekolah }}</h5>

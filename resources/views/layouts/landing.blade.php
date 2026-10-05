@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Official Website</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        
+        .custom-footer a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .custom-footer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+        }
+
+        .social-icons a {
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="d-flex align-items-center gap-3">
+                    <img src="{{ asset('assets/img/smpn1.png') }}" alt="Avatar Logo" style="width:40px;" > 
+                    <h5>SMPN 1 SALAWU</h5>
+                </div>
+            </a>
+            <ul class="navbar-nav gap-3">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#profil">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Guru">Guru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ekstrakurikuler">Ekstrakurikuler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#galeri">Galeri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#berita">Berita</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    @yield('content')
+
+    <footer class="bg-primary pt-5 text-light " style="margin-top: 100px;">
+        <div class="container pb-4">
+            <div class="row gy-4">
+                  
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ asset('assets/img/smpn1.png') }}" alt="Logo SMPN 1 SALAWU" class="me-2" style="width: 40px; height: 40px;">
+                        <h4 class="m-0 fw-bold fs-4 ">SMPN 1 SALAWU</h4>
+                    </div>
+                    
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-start mb-2">
+                            <i class="bi bi-geo-alt-fill me-2 mt-1"></i>
+                            <span>Jl. Raya Salawu No. 56, Desa Margalaksana, Kecamatan Salawu, Kabupaten Tasikmalaya, Jawa Barat 46471</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-2">
+                            <i class="bi bi-whatsapp me-2"></i>
+                            <span>08112224563</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-2">
+                            <i class="bi bi-telephone-fill me-2"></i>
+                            <span>0265-546717</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-envelope-fill me-2"></i>
+                            <span>smpn1salawu@gmail.com</span>
+                        </li>
+                    </ul>
+
+                    <div class="social-icons d-flex">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-tiktok"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Update Terbaru</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2 d-flex align-items-start">
+                            <span class="me-2">•</span>
+                            <p>Siswa SMPN 1 SALAWU Raih Prestasi, Terima Tropi Penghargaan dalam Ajang Lomba</p>
+                        </li>
+                        <li class="mb-2 d-flex align-items-start">
+                            <span class="me-2">•</span>
+                            <p>Khidmat dan Penuh Haru, Haul Akbar Yayasan Pesantren Cintawana Dihadiri Bupati Tasikmalaya</p>
+                        </li>
+                        <li class="mb-2 d-flex align-items-start">
+                            <span class="me-2">•</span>
+                            <p>Tetap Semangat Junjung Sportivitas dan Berikan yang Terbaik</p>
+                        </li>
+                        <li class="mb-2 d-flex align-items-start">
+                            <span class="me-2">•</span>
+                            <p>Persiapan Matang Menuju Puncak Kompetensi</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="footer-title">Komentar Terbaru</h5>
+                </div>
+
+            </div>
+            <hr>
+    
+            <div class="copyright-section text-center py-3">
+                <div class="container">
+                    <p class="m-0 fw-bold">
+                        &copy; 2026 SMPN 1 SALAWU. Mencetak Generasi Siap Kerja, Siap Berkarya.
+                    </p>
+                    <p class="m-0 text-white-50" style="font-size: 0.75rem;">
+                        Crafted with dedication by Pusdatin
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -24,52 +24,46 @@
                 @method('PUT')
 
                 <div class="row">
-                    {{-- Nama Sekolah --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Nama Sekolah *</label>
+                        <label class="form-label font-weight-bold">Nama Sekolah </label>
                         <input type="text" name="nama_sekolah" class="form-control @error('nama_sekolah') is-invalid @enderror" value="{{ old('nama_sekolah', $profil->nama_sekolah ?? '') }}" maxlength="40" required placeholder="Masukkan nama sekolah">
                         @error('nama_sekolah')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Kepala Sekolah --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Nama Kepala Sekolah *</label>
+                        <label class="form-label font-weight-bold">Nama Kepala Sekolah </label>
                         <input type="text" name="kepala_sekolah" class="form-control @error('kepala_sekolah') is-invalid @enderror" value="{{ old('kepala_sekolah', $profil->kepala_sekolah ?? '') }}" maxlength="40" required placeholder="Masukkan nama kepala sekolah">
                         @error('kepala_sekolah')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- NPSN --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">NPSN *</label>
+                        <label class="form-label font-weight-bold">NPSN </label>
                         <input type="text" name="npsn" class="form-control @error('npsn') is-invalid @enderror" value="{{ old('npsn', $profil->npsn ?? '') }}" maxlength="10" required placeholder="Masukkan NPSN">
                         @error('npsn')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Tahun Berdiri --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Tahun Berdiri *</label>
+                        <label class="form-label font-weight-bold">Tahun Berdiri </label>
                         <input type="number" name="tahun_berdiri" class="form-control @error('tahun_berdiri') is-invalid @enderror" value="{{ old('tahun_berdiri', $profil->tahun_berdiri ?? '') }}" placeholder="Contoh: 2005" required>
                         @error('tahun_berdiri')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Kontak --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Kontak / No. Telp *</label>
+                        <label class="form-label font-weight-bold">Kontak / No. Telp </label>
                         <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ old('kontak', $profil->kontak ?? '') }}" maxlength="15" required placeholder="Contoh: 08123456789">
                         @error('kontak')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Logo Sekolah --}}
                     <div class="col-12 mb-3">
                         <label class="form-label font-weight-bold">Logo Sekolah</label>
                         @if(isset($profil->logo) && $profil->logo)
@@ -84,7 +78,6 @@
                         @enderror
                     </div>
 
-                    {{-- Foto Profil / Sampul --}}
                     <div class="col-12 mb-3">
                         <label class="form-label font-weight-bold">Foto Sampul / Gedung / Kepala Sekolah</label>
                         @if(isset($profil->foto) && $profil->foto)
@@ -99,27 +92,24 @@
                         @enderror
                     </div>
 
-                    {{-- Alamat --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Alamat *</label>
+                        <label class="form-label font-weight-bold">Alamat </label>
                         <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" rows="3" required placeholder="Masukkan alamat lengkap sekolah">{{ old('alamat', $profil->alamat ?? '') }}</textarea>
                         @error('alamat')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Deskripsi --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Deskripsi Sekolah *</label>
+                        <label class="form-label font-weight-bold">Deskripsi Sekolah </label>
                         <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="4" required placeholder="Masukkan ringkasan/deskripsi sekolah">{{ old('deskripsi', $profil->deskripsi ?? '') }}</textarea>
                         @error('deskripsi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Visi & Misi --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Visi & Misi *</label>
+                        <label class="form-label font-weight-bold">Visi & Misi </label>
                         <textarea name="visi_misi" class="form-control @error('visi_misi') is-invalid @enderror" rows="5" required placeholder="Masukkan visi dan misi sekolah">{{ old('visi_misi', $profil->visi_misi ?? '') }}</textarea>
                         @error('visi_misi')
                             <div class="invalid-feedback">{{ $message }}</div>

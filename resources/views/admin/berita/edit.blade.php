@@ -24,25 +24,22 @@
                 @method('PUT')
 
                 <div class="row">
-                    {{-- Judul Berita --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Judul Berita *</label>
+                        <label class="form-label font-weight-bold">Judul Berita </label>
                         <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $berita->judul) }}" maxlength="50" required>
                         @error('judul')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Tanggal --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Tanggal *</label>
+                        <label class="form-label font-weight-bold">Tanggal </label>
                         <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" value="{{ old('tanggal', $berita->tanggal) }}" required>
                         @error('tanggal')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{-- Gambar --}}
                     <div class="col-12 mb-3">
                         <label class="form-label font-weight-bold">Gambar Saat Ini & Ubah Gambar</label>
                         @if($berita->gambar)
@@ -57,9 +54,8 @@
                         @enderror
                     </div>
 
-                    {{-- Isi Berita --}}
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Isi Berita *</label>
+                        <label class="form-label font-weight-bold">Isi Berita </label>
                         <textarea name="isi" class="form-control @error('isi') is-invalid @enderror" rows="6" required>{{ old('isi', $berita->isi) }}</textarea>
                         @error('isi')
                             <div class="invalid-feedback">{{ $message }}</div>

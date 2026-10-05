@@ -48,7 +48,7 @@ class BeritaController extends Controller
         }
 
         Berita::create([
-            'id_berita' => (string) Str::uuid(), // Generate ID otomatis di sini
+            'id_berita' => (string) Str::uuid(), 
             'judul'     => $request->judul,
             'isi'       => $request->isi,
             'tanggal'   => $request->tanggal,
@@ -102,7 +102,6 @@ class BeritaController extends Controller
             }
             $data['gambar'] = $request->file('gambar')->store('berita', 'public');
         }
-
         $berita->update($data);
 
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diperbarui!');
