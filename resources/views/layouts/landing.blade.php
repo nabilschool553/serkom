@@ -7,11 +7,11 @@
     <title>Official Website</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        
+
         .custom-footer a {
             color: #ffffff;
             text-decoration: none;
@@ -50,30 +50,35 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="{{ asset('assets/img/smpn1.png') }}" alt="Avatar Logo" style="width:40px;" > 
-                    <h5>SMPN 1 SALAWU</h5>
+                    <img src="{{ asset('assets/img/logosman1.png') }}" alt="Avatar Logo" style="width:40px;" >
+                    <span class="navbar-brand">{{ $namaSekolah }}</span>
                 </div>
             </a>
-            <ul class="navbar-nav gap-3">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#profil">Profil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Guru">Guru</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#ekstrakurikuler">Ekstrakurikuler</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#galeri">Galeri</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#berita">Berita</a>
-                </li>
-            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profil">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Guru">Guru</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ekstrakurikuler">Ekstrakurikuler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeri">Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#berita">Berita</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -82,13 +87,13 @@
     <footer class="bg-primary pt-5 text-light " style="margin-top: 100px;">
         <div class="container pb-4">
             <div class="row gy-4">
-                  
+
                 <div class="col-lg-4 col-md-6">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="{{ asset('assets/img/smpn1.png') }}" alt="Logo SMPN 1 SALAWU" class="me-2" style="width: 40px; height: 40px;">
-                        <h4 class="m-0 fw-bold fs-4 ">SMPN 1 SALAWU</h4>
+                        <img src="{{ asset('assets/img/logosman1.png') }}" alt="Logo SMPN 1 SALAWU" class="me-2" style="width: 40px; height: 40px;">
+                        <span class="navbar-brand">{{ $namaSekolah }}</span>
                     </div>
-                    
+
                     <ul class="list-unstyled">
                         <li class="d-flex align-items-start mb-2">
                             <i class="bi bi-geo-alt-fill me-2 mt-1"></i>
@@ -104,7 +109,7 @@
                         </li>
                         <li class="d-flex align-items-center mb-3">
                             <i class="bi bi-envelope-fill me-2"></i>
-                            <span>smpn1salawu@gmail.com</span>
+                            <span>sman1salawu@gmail.com</span>
                         </li>
                     </ul>
 
@@ -121,7 +126,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2 d-flex align-items-start">
                             <span class="me-2">•</span>
-                            <p>Siswa SMPN 1 SALAWU Raih Prestasi, Terima Tropi Penghargaan dalam Ajang Lomba</p>
+                            <p>Siswa {{ $namaSekolah }} Raih Prestasi, Terima Tropi Penghargaan dalam Ajang Lomba</p>
                         </li>
                         <li class="mb-2 d-flex align-items-start">
                             <span class="me-2">•</span>
@@ -144,7 +149,7 @@
 
             </div>
             <hr>
-    
+
             <div class="copyright-section text-center py-3">
                 <div class="container">
                     <p class="m-0 fw-bold">

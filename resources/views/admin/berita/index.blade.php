@@ -5,6 +5,13 @@
     <div class="card shadow-sm border-0">
         <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
             <h5 class="m-0 font-weight-bold text-primary">Data Berita</h5>
+            <form action="{{ route('admin.berita.index') }}" method="GET" class="d-flex w-50">
+                <input type="text" name="search" class="form-control form-control-sm me-2" placeholder="Cari judul, isi..." value="{{ request('search') }}">
+                <button type="submit" class="btn btn-outline-primary btn-sm">Cari</button>
+                @if(request('search'))
+                    <a href="{{ route('admin.berita.index') }}" class="btn btn-outline-secondary btn-sm ms-1">Reset</a>
+                @endif
+            </form>
             <a href="{{ route('admin.berita.create') }}" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> Tambah Berita
             </a>
@@ -62,7 +69,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center text-muted py-3">Data berita belum tersedia.</td>
+                                <td colspan="7" class="text-center text-muted py-3">Data berita belum tersedia.</td>
                             </tr>
                         @endforelse
                     </tbody>

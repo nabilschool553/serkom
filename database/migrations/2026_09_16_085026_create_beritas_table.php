@@ -15,10 +15,12 @@ return new class extends Migration
             $table->uuid('id_berita')->primary();
             $table->string('judul', 50);
             $table->text('isi');
+            $table->text('slug')->unique();
             $table->date('tanggal');
             $table->string('gambar', 100)->nullable();
             $table->uuid('id_user');
             $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('cascade')->onDelete('restrict');
+            $table->timestamps();
         });
     }
 

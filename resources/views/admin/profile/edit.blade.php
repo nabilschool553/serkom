@@ -25,11 +25,7 @@
 
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <label class="form-label font-weight-bold">Nama Sekolah </label>
-                        <input type="text" name="nama_sekolah" class="form-control @error('nama_sekolah') is-invalid @enderror" value="{{ old('nama_sekolah', $profil->nama_sekolah ?? '') }}" maxlength="40" required placeholder="Masukkan nama sekolah">
-                        @error('nama_sekolah')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <span class="navbar-brand">{{ $namaSekolah }}</span>
                     </div>
 
                     <div class="col-12 mb-3">

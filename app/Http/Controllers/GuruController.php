@@ -5,16 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class GuruController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $gurus = Guru::latest()->paginate(10);
+        $search = $request->input('search');
+        $gurus = Guru::when($search, function ($query, $search) {
+            $query->where('nama_guru', 'like', "%{$search}%")
+                  ->orWhere('nip', 'like', "%{$search}%")
+                  ->orWhere('mapel', 'like', "%{$search}%");
+        })->latest()->paginate(10);
         return view('admin.guru.index', compact('gurus'));
     }
 
@@ -44,6 +50,7 @@ class GuruController extends Controller
         $fotoPath = $request->file('foto')->store('guru', 'public');
 
         Guru::create([
+            'id'        => (string) Str::uuid(),
             'nama_guru' => $request->nama_guru,
             'nip'       => $request->nip,
             'mapel'     => $request->mapel,

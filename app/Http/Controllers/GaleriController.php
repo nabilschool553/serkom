@@ -11,10 +11,14 @@ class GaleriController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $galeris = Galeri::latest()->paginate(10);
+        $search = $request->input('search');
+        $galeris = Galeri::when($search, function ($query, $search) {
+            $query->where('judul', 'like', "%{$search}%")
+                  ->orWhere('keterangan', 'like', "%{$search}%");
+        })->latest()->paginate(10);
         return view('admin.galeri.index', compact('galeris'));
     }
 

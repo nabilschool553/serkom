@@ -10,10 +10,15 @@ class SiswaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $siswas = Siswa::latest()->paginate(10);
+        $search = $request->input('search');
+        $siswas = Siswa::when($search, function ($query, $search) {
+            $query->where('nisn', 'like', "%{$search}%")
+                  ->orWhere('nama_siswa', 'like', "%{$search}%")
+                  ->orWhere('jk', 'like', "%{$search}%");
+        })->latest()->paginate(10);
         return view('admin.siswa.index', compact('siswas'));
     }
 

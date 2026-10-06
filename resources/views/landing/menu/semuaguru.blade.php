@@ -1,15 +1,18 @@
-<div class="bg-light" id="Guru">
-    <div class="container p-5">
-        <h4 class="text-warning">Tenaga Pendidikan</h4>
-        <h2 class="fw-bold text-primary">Guru & Staf Profesional</h2>
-        <hr>
-        <p>
-            Guru dan staf kami terdiri dari tenaga profesional yang kompeten, berpengalaman, dan berdedikasi tinggi dalam memberikan
-            layanan pendidikan berkualitas. Dengan pendekatan pembelajaran yang inovatif dan berorientasi pada kebutuhan siswa, kami
-            berkomitmen menciptakan lingkungan belajar yang inspiratif dan produktif.
-        </p>
+@extends('layouts.landing')
 
-        <div class="row g-4 mt-4 justify-content-center">
+@section('content')
+<div class="bg-light py-5">
+    <div class="container py-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Semua Berita</a>
+            </li>
+        </ul>
+
+        <h2 class="fw-bold text-primary mb-3">Daftar Lengkap Guru & Staf Profesional</h2>
+        <hr class="mb-4">
+
+        <div class="row g-4">
             @forelse($gurus as $guru)
                 <div class="col-md-3 col-sm-6">
                     <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden p-2">
@@ -33,14 +36,16 @@
                 </div>
             @empty
                 <div class="col-12 text-center py-5">
-                    <p class="text-muted mb-0">Belum ada data guru yang tersedia.</p>
+                    <p class="text-muted mb-0">Belum ada data guru.</p>
                 </div>
             @endforelse
         </div>
-        <div class="text-center mt-4">
-            <a href="{{ route('landing.guru.semua') }}" class="btn btn-primary px-4 py-2 rounded-pill">
-                Lihat Semua &rarr;
+
+        <div class="mt-5">
+            <a href="{{ route('landing') }}" class="btn btn-outline-secondary rounded-pill px-4">
+                &larr; Kembali ke Beranda
             </a>
         </div>
     </div>
 </div>
+@endsection

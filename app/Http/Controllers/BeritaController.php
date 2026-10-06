@@ -13,10 +13,14 @@ class BeritaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $berita = Berita::with('user')->latest('tanggal')->paginate(10);
+        $search = $request->input('search');
+        $berita = Berita::when($search, function ($query, $search) {
+            $query->where('judul', 'like', "%{$search}%")
+                  ->orWhere('isi', 'like', "%{$search}%");
+        })->latest()->paginate(10);
         return view('admin.berita.index', compact('berita'));
     }
 
@@ -48,8 +52,9 @@ class BeritaController extends Controller
         }
 
         Berita::create([
-            'id_berita' => (string) Str::uuid(), 
+            'id_berita' => (string) Str::uuid(),
             'judul'     => $request->judul,
+            'slug'      => Str::slug($request->judul),
             'isi'       => $request->isi,
             'tanggal'   => $request->tanggal,
             'gambar'    => $gambarPath,

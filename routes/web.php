@@ -9,29 +9,30 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('landing.index');
-});
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/guru/semua', [LandingController::class, 'semuaGuru'])->name('landing.guru.semua');
+Route::get('/ekstrakulikuler/semua', [LandingController::class, 'semuaEkstrakulikuler'])->name('landing.ekstrakulikuler.semua');
+Route::get('/berita/semua', [LandingController::class, 'semuaBerita'])->name('landing.berita.semua');
+Route::get('/galeri/semua', [LandingController::class, 'semuaGaleri'])->name('landing.galeri.semua');
 
-
+Route::get('/berita/detail/{slug}', [LandingController::class, 'detailBerita'])->name('landing.berita.detail');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
-
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Route untuk pengguna yang sudah login
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/user', [UserController::class, 'index'])->name('admin.user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('admin.user.create');
     Route::post('/user', [UserController::class, 'store'])->name('admin.user.store');
-    Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
     Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
     Route::put('/user/{id}', [UserController::class, 'update'])->name('admin.user.update');
+    Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
 
     Route::get('/siswa', [SiswaController::class, 'index'])->name('admin.siswa.index');
     Route::get('/siswa/create', [SiswaController::class, 'create'])->name('admin.siswa.create');

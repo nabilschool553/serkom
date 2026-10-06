@@ -11,10 +11,15 @@ class EkstrakulikulerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $ekstrakulikuler = ekstrakulikuler::latest()->paginate(10);
+        $search = $request->input('search');
+        $ekstrakulikuler = ekstrakulikuler::when($search, function ($query, $search) {
+            $query->where('nama_eskul', 'like', "%{$search}%")
+                  ->orWhere('pembina', 'like', "%{$search}%")
+                  ->orWhere('jadwal', 'like', "%{$search}%");
+        })->latest()->paginate(10);
         return view('admin.ekstrakulikuler.index', compact('ekstrakulikuler'));
     }
 

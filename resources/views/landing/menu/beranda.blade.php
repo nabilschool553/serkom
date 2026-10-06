@@ -4,11 +4,11 @@
         overflow: hidden;
         border-radius: 0px;
     }
-    
+
     .hero-container img {
         width: 100%;
-        height: 500px; 
-        object-fit:cover; 
+        height: 500px;
+        object-fit:cover;
     }
 
     .hero-overlay {
@@ -17,7 +17,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.6); 
+        background: rgba(0, 0, 0, 0.6);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -26,10 +26,10 @@
     }
 </style>
 
-<div class="container-fluid p-0" style="margin-top: 70px;">
+<div class="container-fluid p-0" style="margin-top:0;">
 
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-        
+
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -37,9 +37,9 @@
         </div>
 
         <div class="carousel-inner">
-            
+
             <div class="carousel-item active position-relative" data-bs-interval="5000">
-                <img src="{{ asset('assets/img/sekolah1.jpg') }}" class="w-100 d-block" alt="Foto Sekolah Unggulan" style="height: 500px; object-fit: cover;">
+                <img src="{{ asset('assets/img/sekolah1.jpg') }}" class="w-100 d-block" alt="Foto Sekolah Unggulan" style="height: 600px; object-fit: cover;">
                 <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
                     <div class="container">
@@ -50,9 +50,6 @@
                                 <p class="lead text-white-50 mb-4">
                                     Lingkungan belajar modern dengan tenaga pendidik profesional dan program terarah untuk membentuk karakter, kompetensi, dan kesiapan karier siswa.
                                 </p>
-                                <a href="#" class="btn btn-warning fw-bold px-4 py-2 rounded-pill text-white">
-                                    Lihat Profil Sekolah
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -60,7 +57,7 @@
             </div>
 
             <div class="carousel-item position-relative" data-bs-interval="5000">
-                <img src="{{ asset('assets/img/sekolah2.jpg') }}" class="w-100 d-block" alt="Foto Kegiatan Sekolah" style="height: 500px; object-fit: cover;">
+                <img src="{{ asset('assets/img/sekolah2.jpg') }}" class="w-100 d-block" alt="Foto Kegiatan Sekolah" style="height: 600px; object-fit: cover;">
                 <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
                     <div class="container">
@@ -71,9 +68,6 @@
                                 <p class="lead text-white-50 mb-4">
                                     Berbagai kegiatan ekstrakurikuler dan fasilitas penunjang untuk mengasah bakat serta potensi peserta didik secara maksimal.
                                 </p>
-                                <a href="#" class="btn btn-warning fw-bold px-4 py-2 rounded-pill text-white">
-                                    Lihat Ekstrakurikuler
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +75,7 @@
             </div>
 
             <div class="carousel-item position-relative" data-bs-interval="5000">
-                <img src="{{ asset('assets/img/sekolah3.jpg') }}" class="w-100 d-block" alt="Fasilitas Sekolah" style="height: 500px; object-fit: cover;">
+                <img src="{{ asset('assets/img/sekolah3.jpg') }}" class="w-100 d-block" alt="Fasilitas Sekolah" style="height: 600px; object-fit: cover;">
                 <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
                     <div class="container">
@@ -92,9 +86,6 @@
                                 <p class="lead text-white-50 mb-4">
                                     Menyediakan ruang kelas yang nyaman, laboratorium, perpustakaan, dan sarana penunjang pembelajaran digital lainnya.
                                 </p>
-                                <a href="#" class="btn btn-warning fw-bold px-4 py-2 rounded-pill text-white">
-                                    Lihat Fasilitas
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -112,5 +103,21 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+</div>
 
+<div class="container my-5">
+    <div class="row stats-container rounded-4 shadow-lg overflow-hidden text-primary text-center py-4">
+        <div class="col stat-item">
+            <h2 class="fw-bold mb-1">1300+</h2>
+            <p class="mb-0 text-dark-50 small">Siswa</p>
+        </div>
+        <div class="col stat-item">
+            <h2 class="fw-bold mb-1">100+</h2>
+            <p class="mb-0 text-dark-50 small">Guru & Staf</p>
+        </div>
+        <div class="col stat-item">
+            <h2 class="fw-bold mb-1">15+</h2>
+            <p class="mb-0 text-dark-50 small">Ekstrakulikuler</p>
+        </div>
+    </div>
 </div>

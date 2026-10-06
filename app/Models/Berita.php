@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 class Berita extends Model
 {
     //
-    use HasFactory;
+    use HasFactory, HasUuids;
 
     protected $table = 'berita';
     protected $primaryKey = 'id_berita';
@@ -21,6 +21,7 @@ class Berita extends Model
     protected $fillable = [
         'id_berita',
         'judul',
+        'slug',
         'isi',
         'tanggal',
         'gambar',

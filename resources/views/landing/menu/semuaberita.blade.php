@@ -1,13 +1,18 @@
-<div class="" id="berita">
-    <div class="container p-5">
-        <h4 class="text-warning">Informasi & Pembaruan</h4>
-        <h2 class="fw-bold text-primary">Berita</h2>
-        <hr>
-        <p>Temukan berbagai informasi terbaru seputar kegiatan, prestasi, dan perkembangan
-            sekolah melalui berita dan artikel yang kami sajikan. Kami menghadirkan konten informatif
-            dan inspiratif untuk memberikan gambaran nyata tentang aktivitas dan pencapaian sekolah.
-        </p>
-        <div class="row g-4 mt-4 justify-content-center">
+@extends('layouts.landing')
+
+@section('content')
+<div class="bg-light py-5">
+    <div class="container py-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Semua Berita</a>
+            </li>
+        </ul>
+
+        <h2 class="fw-bold text-primary mb-3">Daftar Lengkap Berita</h2>
+        <hr class="mb-4">
+
+        <div class="row g-4">
             @forelse($beritas as $berita)
                 <div class="col-md-4 col-sm-6">
                     <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden p-2">
@@ -24,21 +29,23 @@
                                 {{ $berita->judul }}
                             </h5>
                             <p class="card-text text-muted mb-0" style="font-size: 0.85rem;">
-                                {{ $berita->isi }}
+                                {{ $berita->deskripsi }}
                             </p>
                         </div>
                     </div>
                 </div>
             @empty
                 <div class="col-12 text-center py-5">
-                    <p class="text-muted mb-0">Belum ada data berita yang tersedia.</p>
+                    <p class="text-muted mb-0">Belum ada data berita.</p>
                 </div>
             @endforelse
         </div>
-        <div class="text-center mt-4">
-            <a href="{{ route('landing.berita.semua') }}" class="btn btn-primary px-4 py-2 rounded-pill">
-                Lihat Semua &rarr;
+
+        <div class="mt-5">
+            <a href="{{ route('landing') }}" class="btn btn-outline-secondary rounded-pill px-4">
+                &larr; Kembali ke Beranda
             </a>
         </div>
     </div>
 </div>
+@endsection

@@ -468,11 +468,9 @@
                 {{-- <div class="school-icon">
                     <i class="fa-solid fa-school"></i>
                 </div> --}}
-                <img src="{{ asset('assets/img/smpn1.png') }}" alt="Avatar Logo" style="width:40px;" >
+                <img src="{{ asset('assets/img/logosman1.png') }}" alt="Avatar Logo" style="width:40px;" >
                 <div>
-                    <p class="school-name">
-                        SMPN 1 SALAWU Admin
-                    </p>
+                    <span class="navbar-brand text-white">{{ $namaSekolah }}</span>
                     <p class="school-subtitle">
                         Panel Administrasi
                     </p>
@@ -503,7 +501,7 @@
                 </span>
             </a>
             @auth
-                @if (Auth::user()->role === 'admin')       
+                @if (Auth::user()->role === 'admin')
                     <a href="{{ route('admin.user.index') }}">
                         <i class="fa-solid fa-users"></i>
                         <span>
@@ -555,7 +553,7 @@
                 <h1 class="page-title">Sistem Informasi</h1>
                 <p class="page-description">Selamat datang di Panel Administrasi SMPN 1 Salawu</p>
             </div>
-            
+
             <div class="top-admin">
                 <div class="top-admin-info">
                     <p class="top-admin-name">{{ Auth::user()->name ?? 'Administrator' }}</p>
