@@ -12,8 +12,8 @@ class ekstrakulikuler extends Model
     use HasFactory, HasUuids;
 
     protected $table = 'ekstrakulikulers';
-    protected $primaryKey = 'id_ekstrakulikuler'; 
-    public $incrementing = false; 
+    protected $primaryKey = 'id_ekstrakulikuler';
+    public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
