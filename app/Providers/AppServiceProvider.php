@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use App\Models\Profil_sekolah;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-        View::share('namaSekolah', 'SMAN 1 SALAWU');
+        View::share(
+            'profilSekolah',
+            Profil_sekolah::first()
+        );
     }
 }

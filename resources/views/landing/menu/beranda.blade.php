@@ -1,33 +1,4 @@
-<style>
-    .hero-container {
-        position: relative;
-        overflow: hidden;
-        border-radius: 0px;
-    }
-
-    .hero-container img {
-        width: 100%;
-        height: 500px;
-        object-fit:cover;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #ffffff;
-    }
-</style>
-
 <div class="container-fluid p-0" style="margin-top:0;">
-
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-indicators">
@@ -39,7 +10,7 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active position-relative" data-bs-interval="5000">
-                <img src="{{ asset('assets/img/sekolah1.jpg') }}" class="w-100 d-block" alt="Foto Sekolah Unggulan" style="height: 600px; object-fit: cover;">
+                <img src="{{ asset('assets/img/sekolah1.jpg') }}" class="w-100 d-block object-fit-cover" style="height: 600px;" alt="Foto Sekolah Unggulan">
                 <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
                     <div class="container">
@@ -57,7 +28,7 @@
             </div>
 
             <div class="carousel-item position-relative" data-bs-interval="5000">
-                <img src="{{ asset('assets/img/sekolah2.jpg') }}" class="w-100 d-block" alt="Foto Kegiatan Sekolah" style="height: 600px; object-fit: cover;">
+                <img src="{{ asset('assets/img/sekolah2.jpg') }}" class="w-100 d-block object-fit-cover" style="height: 600px;" alt="Foto Kegiatan Sekolah">
                 <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
                     <div class="container">
@@ -75,7 +46,7 @@
             </div>
 
             <div class="carousel-item position-relative" data-bs-interval="5000">
-                <img src="{{ asset('assets/img/sekolah3.jpg') }}" class="w-100 d-block" alt="Fasilitas Sekolah" style="height: 600px; object-fit: cover;">
+                <img src="{{ asset('assets/img/sekolah3.jpg') }}" class="w-100 d-block object-fit-cover" style="height: 600px;" alt="Fasilitas Sekolah">
                 <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-center text-white">
                     <div class="container">
@@ -108,15 +79,15 @@
 <div class="container my-5">
     <div class="row stats-container rounded-4 shadow-lg overflow-hidden text-primary text-center py-4">
         <div class="col stat-item">
-            <h2 class="fw-bold mb-1">1300+</h2>
+            <h2 class="fw-bold mb-1">{{ $totalSiswa }}+</h2>
             <p class="mb-0 text-dark-50 small">Siswa</p>
         </div>
         <div class="col stat-item">
-            <h2 class="fw-bold mb-1">100+</h2>
+            <h2 class="fw-bold mb-1">{{ $totalGuru }}+</h2>
             <p class="mb-0 text-dark-50 small">Guru & Staf</p>
         </div>
         <div class="col stat-item">
-            <h2 class="fw-bold mb-1">15+</h2>
+            <h2 class="fw-bold mb-1">{{ $totalEskul }}+</h2>
             <p class="mb-0 text-dark-50 small">Ekstrakulikuler</p>
         </div>
     </div>

@@ -1,7 +1,7 @@
-<div class="" id="galeri">
-    <div class="container p-5">
-        <h4 class="text-warning">Dokumentasi Kegiatan</h4>
-        <h2 class="fw-bold text-primary">Galeri Sekolah</h2>
+<div class="py-5" id="galeri">
+    <div class="container p-5 text-center">
+        <span class="text-primary fw-bold text-uppercase small">Galeri Sekolah Kami</span>
+        <h2 class="fw-bold display-6 text-dark mt-2 mb-3">Dokumentasi Kegiatan</h2>
         <hr>
         <p>Galeri sekolah menampilkan berbagai dokumentasi kegiatan dan momen berharga siswa selama
             proses pembelajaran dan pengembangan diri. Melalui foto dan video, Anda dapat melihat secara langsung

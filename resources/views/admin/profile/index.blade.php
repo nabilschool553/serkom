@@ -21,7 +21,6 @@
                 <div class="row">
                     <div class="col-12 mb-4 text-center">
                         <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
-
                             @if($profil->foto)
                                 <div>
                                     <img src="{{ asset('storage/' . $profil->foto) }}" alt="Foto" class="img-thumbnail" style="height: 300px; object-fit: cover;">
@@ -35,7 +34,7 @@
                         </div>
                     @endif
                     <div class="col-12 mb-3">
-                        <span class="navbar-brand">{{ $namaSekolah }}</span>
+                        <span class="navbar-brand">{{ $profil->nama_sekolah}}</span>
                     </div>
 
                     <div class="col-12 mb-3">

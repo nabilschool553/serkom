@@ -1,7 +1,7 @@
-<div class="bg-light" id="ekstrakurikuler">
-    <div class="container p-5">
-        <h4 class="text-warning">Pengembangan Minat & Bakat<h4>
-        <h2 class="fw-bold text-primary">Ekstrakulikuler</h2>
+<div class="bg-light py-5" id="ekstrakurikuler">
+    <div class="container p-5 text-center">
+        <span class="text-primary fw-bold text-uppercase small">Ekstrakulikuler Sekolah Kami</span>
+        <h2 class="fw-bold display-6 text-dark mt-2 mb-3">Pengembangan Minat & Bakat</h2>
         <hr>
         <p>Kami menyediakan beragam kegiatan ekstrakurikuler sebagai wadah pengembangan minat,
             bakat, dan karakter siswa. Melalui kegiatan di bidang seni, olahraga, kepemimpinan, dan sosial,

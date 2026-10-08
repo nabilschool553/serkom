@@ -19,7 +19,10 @@ class LandingController extends Controller
         $galeris          = Galeri::take(3)->get();
         $ekstrakulikulers = Ekstrakulikuler::take(3)->get();
         $profil_sekolah   = Profil_sekolah::first();
-        $siswas           = Siswa::all();
+
+        $totalGuru   = Guru::count();
+        $totalSiswa  = Siswa::count();
+        $totalEskul  = Ekstrakulikuler::count();
 
         return view('landing.index', compact(
             'gurus',
@@ -27,7 +30,9 @@ class LandingController extends Controller
             'galeris',
             'ekstrakulikulers',
             'profil_sekolah',
-            'siswas'
+            'totalGuru',
+            'totalSiswa',
+            'totalEskul'
         ));
     }
 
@@ -40,25 +45,45 @@ class LandingController extends Controller
     public function semuaGuru()
     {
         $gurus = Guru::all();
-        return view('landing.menu.semuaguru', compact('gurus'));
+        return view('landing.halaman.guru.index', compact('gurus'));
     }
+
 
     public function semuaBerita()
     {
         $beritas = Berita::all();
-        return view('landing.menu.semuaberita', compact('beritas'));
+        return view('landing.halaman.berita.index', compact('beritas'));
     }
 
     public function semuaEkstrakulikuler()
     {
         $ekstrakulikulers = Ekstrakulikuler::all();
-        return view('landing.menu.semuaeskul', compact('ekstrakulikulers'));
+        return view('landing.halaman.ekstrakulikuler.index', compact('ekstrakulikulers'));
     }
 
     public function semuaGaleri()
     {
         $galeris = Galeri::all();
-        return view('landing.menu.semuaGaleri', compact('galeris'));
+        return view('landing.halaman.galeri.index', compact('galeris'));
+    }
+
+    public function detailGuru($id)
+    {
+        $gurus = Guru::findOrFail($id);
+        return view('landing.halaman.guru.detail', compact('gurus'));
+    }
+
+
+    public function detailGaleri($id)
+    {
+        $galeris = Galeri::findOrFail($id);
+        return view('landing.halaman.galeri.detail', compact('galeris'));
+    }
+
+    public function detailEkstrakulikuler($id)
+    {
+        $ekstrakulikulers = Ekstrakulikuler::findOrFail($id);
+        return view('landing.halaman.ekstrakulikuler.detail', compact('ekstrakulikulers'));
     }
 
 }

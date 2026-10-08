@@ -5,6 +5,8 @@
 
     @include('landing.menu.profile')
 
+    @include('landing.menu.visimisi')
+
     @include('landing.menu.guru')
 
     @include('landing.menu.berita')

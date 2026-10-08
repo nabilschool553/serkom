@@ -1,7 +1,7 @@
-<div class="" id="berita">
-    <div class="container p-5">
-        <h4 class="text-warning">Informasi & Pembaruan</h4>
-        <h2 class="fw-bold text-primary">Berita</h2>
+<div class="bg-white py-5" id="berita">
+    <div class="container p-5 text-center">
+        <span class="text-primary fw-bold text-uppercase small">Berita Sekolah Kami</span>
+        <h2 class="fw-bold display-6 text-dark mt-2 mb-3">Informasi & Pembaruan</h2>
         <hr>
         <p>Temukan berbagai informasi terbaru seputar kegiatan, prestasi, dan perkembangan
             sekolah melalui berita dan artikel yang kami sajikan. Kami menghadirkan konten informatif

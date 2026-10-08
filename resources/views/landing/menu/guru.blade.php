@@ -1,7 +1,7 @@
-<div class="bg-light" id="Guru">
-    <div class="container p-5">
-        <h4 class="text-warning">Tenaga Pendidikan</h4>
-        <h2 class="fw-bold text-primary">Guru & Staf Profesional</h2>
+<div class="bg-light py-5" id="Guru">
+    <div class="container p-5 text-center">
+        <span class="text-primary fw-bold text-uppercase small">Guru & Staf Profesional</span>
+        <h2 class="fw-bold display-6 text-dark mt-2 mb-3">Tenaga Pendidikan</h2>
         <hr>
         <p>
             Guru dan staf kami terdiri dari tenaga profesional yang kompeten, berpengalaman, dan berdedikasi tinggi dalam memberikan

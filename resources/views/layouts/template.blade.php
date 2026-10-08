@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard Admin - SMPN 1 SALAWU</title>
+    <title>Dashboard Admin - {{ $profilSekolah->nama_sekolah }}</title>
+    <link rel="icon" type="img/png" href=" {{ asset('assets/img/logosman1.png')}}">
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -398,7 +399,7 @@
             </div>
             <div>
                 <div class="mobile-title">
-                    SMPN 1 SALAWU
+                    {{ $profilSekolah->nama_sekolah }}
                 </div>
                 <div class="mobile-subtitle">
                     Dashboard Admin
@@ -465,12 +466,9 @@
         <!-- Header -->
         <div class="sidebar-header">
             <div class="d-flex align-items-center gap-3">
-                {{-- <div class="school-icon">
-                    <i class="fa-solid fa-school"></i>
-                </div> --}}
-                <img src="{{ asset('assets/img/logosman1.png') }}" alt="Avatar Logo" style="width:40px;" >
+                <img src="{{ asset('storage/' . $profilSekolah->logo) }}" alt="Avatar Logo" style="width:40px;" >
                 <div>
-                    <span class="navbar-brand text-white">{{ $namaSekolah }}</span>
+                    <span class="navbar-brand text-white">{{ $profilSekolah->nama_sekolah }}</span>
                     <p class="school-subtitle">
                         Panel Administrasi
                     </p>
@@ -551,7 +549,7 @@
         <header class="top-navbar">
             <div>
                 <h1 class="page-title">Sistem Informasi</h1>
-                <p class="page-description">Selamat datang di Panel Administrasi SMPN 1 Salawu</p>
+                <p class="page-description">Selamat datang di Panel Administrasi {{ $profilSekolah->nama_sekolah }}</p>
             </div>
 
             <div class="top-admin">

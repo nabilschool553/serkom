@@ -50,8 +50,8 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="{{ asset('assets/img/logosman1.png') }}" alt="Avatar Logo" style="width:40px;" >
-                    <span class="navbar-brand">{{ $namaSekolah }}</span>
+                    <img src="{{ asset('storage/' . $profilSekolah->logo) }}" alt="Logo" style="height: 40px; width: auto;">
+                    <span class="navbar-brand">{{ $profilSekolah->nama_sekolah }}</span>
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,14 +90,14 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="{{ asset('assets/img/logosman1.png') }}" alt="Logo SMPN 1 SALAWU" class="me-2" style="width: 40px; height: 40px;">
-                        <span class="navbar-brand">{{ $namaSekolah }}</span>
+                        <img src="{{ asset('storage/' . $profilSekolah->logo) }}" alt="Logo" style="height: 40px; width: auto;" class="me-2">
+                        <span class="navbar-brand">{{ $profilSekolah->nama_sekolah }}</span>
                     </div>
 
                     <ul class="list-unstyled">
                         <li class="d-flex align-items-start mb-2">
                             <i class="bi bi-geo-alt-fill me-2 mt-1"></i>
-                            <span>Jl. Raya Salawu No. 56, Desa Margalaksana, Kecamatan Salawu, Kabupaten Tasikmalaya, Jawa Barat 46471</span>
+                            <span>{{ $profilSekolah->alamat }}</span>
                         </li>
                         <li class="d-flex align-items-center mb-2">
                             <i class="bi bi-whatsapp me-2"></i>
@@ -109,7 +109,7 @@
                         </li>
                         <li class="d-flex align-items-center mb-3">
                             <i class="bi bi-envelope-fill me-2"></i>
-                            <span>sman1salawu@gmail.com</span>
+                            <span>{{ $profilSekolah->nama_sekolah }}@gmail.com</span>
                         </li>
                     </ul>
 
@@ -126,7 +126,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2 d-flex align-items-start">
                             <span class="me-2">•</span>
-                            <p>Siswa {{ $namaSekolah }} Raih Prestasi, Terima Tropi Penghargaan dalam Ajang Lomba</p>
+                            <p>Siswa {{ $profilSekolah->nama_sekolah }} Raih Prestasi, Terima Tropi Penghargaan dalam Ajang Lomba</p>
                         </li>
                         <li class="mb-2 d-flex align-items-start">
                             <span class="me-2">•</span>
@@ -153,7 +153,7 @@
             <div class="copyright-section text-center py-3">
                 <div class="container">
                     <p class="m-0 fw-bold">
-                        &copy; 2026 SMPN 1 SALAWU. Mencetak Generasi Siap Kerja, Siap Berkarya.
+                        &copy; {{ $profilSekolah->nama_sekolah }} Mencetak Generasi Siap Kerja, Siap Berkarya.
                     </p>
                     <p class="m-0 text-white-50" style="font-size: 0.75rem;">
                         Crafted with dedication by Pusdatin
