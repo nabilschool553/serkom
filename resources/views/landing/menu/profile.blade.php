@@ -21,9 +21,6 @@
                 <div class="border-top pt-4">
 
                     <div class="d-flex align-items-start gap-3 mb-3">
-                        <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-3 mt-1">
-                            <i class="bi bi-geo-alt-fill fs-5"></i>
-                        </div>
                         <div>
                             <h6 class="fw-bold text-dark mb-1">Alamat Sekolah</h6>
                             <p class="text-muted small mb-0">{{ $profilSekolah->alamat}}</p>

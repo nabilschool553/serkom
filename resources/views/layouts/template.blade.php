@@ -296,18 +296,34 @@
 
         <nav class="sidebar-menu pt-3">
             <div class="menu-title">Menu Utama</div>
-            <a href="{{ route('dashboard') }}"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a>
-            <a href="{{ route('admin.guru.index') }}"><i class="fa-solid fa-chalkboard-user"></i><span>Data Guru</span></a>
-            <a href="{{ route('admin.siswa.index') }}"><i class="fa-solid fa-users"></i><span>Data Siswa</span></a>
+            <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <i class="fa-solid fa-chart-pie"></i><span>Dashboard</span>
+            </a>
+            <a href="{{ route('admin.guru.index') }}" class="{{ request()->routeIs('admin.guru.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-chalkboard-user"></i><span>Data Guru</span>
+            </a>
+            <a href="{{ route('admin.siswa.index') }}" class="{{ request()->routeIs('admin.siswa.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-users"></i><span>Data Siswa</span>
+            </a>
             @auth
                 @if (Auth::user()->role === 'admin')
-                    <a href="{{ route('admin.user.index') }}"><i class="fa-solid fa-users-gear"></i><span>Data User</span></a>
+                    <a href="{{ route('admin.user.index') }}" class="{{ request()->routeIs('admin.user.*') ? 'active' : '' }}">
+                        <i class="fa-solid fa-users-gear"></i><span>Data User</span>
+                    </a>
                 @endif
             @endauth
-            <a href="{{ route('admin.berita.index') }}"><i class="fa-solid fa-newspaper"></i><span>Kelola Berita</span></a>
-            <a href="{{ route('admin.ekstrakulikuler.index') }}"><i class="fa-solid fa-basketball"></i><span>Ekstrakurikuler</span></a>
-            <a href="{{ route('admin.galeri.index') }}"><i class="fa-solid fa-images"></i><span>Galeri</span></a>
-            <a href="{{ route('admin.profil.index') }}"><i class="fa-solid fa-school"></i><span>Profile Sekolah</span></a>
+            <a href="{{ route('admin.berita.index') }}" class="{{ request()->routeIs('admin.berita.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-newspaper"></i><span>Kelola Berita</span>
+            </a>
+            <a href="{{ route('admin.ekstrakulikuler.index') }}" class="{{ request()->routeIs('admin.ekstrakulikuler.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-basketball"></i><span>Ekstrakurikuler</span>
+            </a>
+            <a href="{{ route('admin.galeri.index') }}" class="{{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-images"></i><span>Galeri</span>
+            </a>
+            <a href="{{ route('admin.profil.index') }}" class="{{ request()->routeIs('admin.profil.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-school"></i><span>Profile Sekolah</span>
+            </a>
         </nav>
     </aside>
 

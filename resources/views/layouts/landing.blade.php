@@ -60,22 +60,22 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav gap-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Beranda</a>
+                        <a class="nav-link active" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#profil">Profil</a>
+                        <a class="nav-link active" href="#profil">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Guru">Guru</a>
+                        <a class="nav-link active" href="#Guru">Guru</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#berita">Berita</a>
+                        <a class="nav-link active" href="#berita">Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#ekstrakulikuler">Ekstrakurikuler</a>
+                        <a class="nav-link active" href="#ekstrakulikuler">Ekstrakurikuler</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#galeri">Galeri</a>
+                        <a class="nav-link active" href="#galeri">Galeri</a>
                     </li>
                 </ul>
             </div>
