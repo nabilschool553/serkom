@@ -49,6 +49,7 @@ class GaleriController extends Controller
 
         Galeri::create([
             'judul'      => $request->judul,
+            'slug'       => Str::slug($request->judul),
             'keterangan' => $request->keterangan,
             'kategori'   => $request->kategori,
             'tanggal'    => $request->tanggal,

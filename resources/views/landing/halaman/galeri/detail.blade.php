@@ -5,7 +5,7 @@
         <div class="container py-4">
             <nav aria-label="breadcrumb" class="mb-4">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="{{ route('landing') }}" class="text-decoration-none">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('landing') }}#galeri" class="text-decoration-none">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('landing.galeri.semua') }}" class="text-decoration-none">Staf & Guru</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $galeris->judul }}</li>
                 </ol>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="mt-5">
-            <a href="{{ route('landing') }}" class="btn btn-outline-secondary rounded-pill px-4">
+            <a href="{{ route('landing') }}#galeri" class="btn btn-outline-secondary rounded-pill px-4">
                 &larr; Kembali ke Beranda
             </a>
         </div>

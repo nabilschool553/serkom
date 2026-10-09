@@ -53,6 +53,7 @@ class EkstrakulikulerController extends Controller
 
         ekstrakulikuler::create([
             'nama_eskul'    => $request->nama_eskul,
+            'slug'          => Str::slug($request->nama_eskul),
             'pembina'       => $request->pembina,
             'jadwal'        => $request->jadwal,
             'deskripsi'     => $request->deskripsi,

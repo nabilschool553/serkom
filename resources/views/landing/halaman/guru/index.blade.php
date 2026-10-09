@@ -5,7 +5,7 @@
     <div class="container py-4">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="{{ route('landing') }}" class="text-decoration-none">Beranda</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('landing') }}#Guru" class="text-decoration-none">Beranda</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Staf & Guru</li>
             </ol>
         </nav>
@@ -16,7 +16,7 @@
         <div class="row g-4">
             @forelse($gurus as $guru)
                 <div class="col-md-3 col-sm-6">
-                    <a href="{{ route('landing.halaman.guru.detail', $guru->id) }}" class="text-decoration-none">
+                    <a href="{{ route('landing.halaman.guru.detail', $guru->slug) }}" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden p-2">
                             <div class="rounded-4 overflow-hidden" style="height: 280px;">
                                 @if($guru->foto)
@@ -45,7 +45,7 @@
         </div>
 
         <div class="mt-5">
-            <a href="{{ route('landing') }}" class="btn btn-outline-secondary rounded-pill px-4">
+            <a href="{{ route('landing') }}#Guru" class="btn btn-outline-secondary rounded-pill px-4">
                 &larr; Kembali ke Beranda
             </a>
         </div>

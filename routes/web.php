@@ -18,12 +18,10 @@ Route::get('/ekstrakulikuler/semua', [LandingController::class, 'semuaEkstrakuli
 Route::get('/berita/semua', [LandingController::class, 'semuaBerita'])->name('landing.berita.semua');
 Route::get('/galeri/semua', [LandingController::class, 'semuaGaleri'])->name('landing.galeri.semua');
 
-Route::get('/guru/detail/{id}', [LandingController::class, 'detailguru'])->name('landing.halaman.guru.detail');
-Route::get('/galeri/detail/{id}', [LandingController::class, 'detailGaleri'])->name('landing.halaman.galeri.detail');
-Route::get('/galeri/ekstrakulikuler/{id}', [LandingController::class, 'detailEkstrakulikuler'])->name('landing.halaman.ekstrakulikuler.detail');
-// Route::get('/galeri/berita/{id}', [LandingController::class, 'detailBerita'])->name('landing.halaman.berita.detail');
-
-Route::get('/berita/detail/{slug}', [LandingController::class, 'detailBerita'])->name('landing.berita.detail');
+Route::get('/guru/detail/{slug}', [LandingController::class, 'detailguru'])->name('landing.halaman.guru.detail');
+Route::get('/galeri/detail/{slug}', [LandingController::class, 'detailGaleri'])->name('landing.halaman.galeri.detail');
+Route::get('/galeri/ekstrakulikuler/{slug}', [LandingController::class, 'detailEkstrakulikuler'])->name('landing.halaman.ekstrakulikuler.detail');
+Route::get('/galeri/berita/{slug}', [LandingController::class, 'detailBerita'])->name('landing.halaman.berita.detail');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);

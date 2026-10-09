@@ -36,12 +36,6 @@ class LandingController extends Controller
         ));
     }
 
-    public function detailBerita($slug)
-    {
-        $berita = Berita::where('slug', $slug)->firstOrFail();
-        return view('landing.berita-detail', compact('berita'));
-    }
-
     public function semuaGuru()
     {
         $gurus = Guru::all();
@@ -67,23 +61,28 @@ class LandingController extends Controller
         return view('landing.halaman.galeri.index', compact('galeris'));
     }
 
-    public function detailGuru($id)
+    public function detailGuru($slug)
     {
-        $gurus = Guru::findOrFail($id);
+        $gurus = Guru::where('slug', $slug)->firstOrfail();
         return view('landing.halaman.guru.detail', compact('gurus'));
     }
 
 
-    public function detailGaleri($id)
+    public function detailGaleri($slug)
     {
-        $galeris = Galeri::findOrFail($id);
+        $galeris = Galeri::where('slug', $slug)->firstOrfail();
         return view('landing.halaman.galeri.detail', compact('galeris'));
     }
 
-    public function detailEkstrakulikuler($id)
+    public function detailEkstrakulikuler($slug)
     {
-        $ekstrakulikulers = Ekstrakulikuler::findOrFail($id);
+        $ekstrakulikulers = Ekstrakulikuler::where('slug', $slug)->firstOrfail();
         return view('landing.halaman.ekstrakulikuler.detail', compact('ekstrakulikulers'));
     }
 
+    public function detailBerita($slug)
+    {
+        $beritas = Berita::where('slug', $slug)->firstOrFail();
+        return view('landing.halaman.berita.detail', compact('beritas'));
+    }
 }

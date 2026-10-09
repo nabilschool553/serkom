@@ -5,7 +5,7 @@
     <div class="container py-4">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="{{ route('landing') }}" class="text-decoration-none">Beranda</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('landing') }}#galeri" class="text-decoration-none">Beranda</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Galeri Sekolah</li>
             </ol>
         </nav>
@@ -16,7 +16,7 @@
         <div class="row g-4">
             @forelse($galeris as $galeri)
                 <div class="col-md-4 col-sm-6">
-                    <a href="{{ route('landing.halaman.galeri.detail', $galeri->id_galeri ) }}" class="text-decoration-none">
+                    <a href="{{ route('landing.halaman.galeri.detail', $galeri->slug ) }}" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden p-2">
                             <div class="rounded-4 overflow-hidden" style="height: 280px;">
                                 @if($galeri->kategori == 'foto' && $galeri->file)
@@ -50,7 +50,7 @@
         </div>
 
         <div class="mt-5">
-            <a href="{{ route('landing') }}" class="btn btn-outline-secondary rounded-pill px-4">
+            <a href="{{ route('landing') }}#galeri" class="btn btn-outline-secondary rounded-pill px-4">
                 &larr; Kembali ke Beranda
             </a>
         </div>

@@ -69,13 +69,13 @@
                         <a class="nav-link" href="#Guru">Guru</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#ekstrakurikuler">Ekstrakurikuler</a>
+                        <a class="nav-link" href="#berita">Berita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ekstrakulikuler">Ekstrakurikuler</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#galeri">Galeri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#berita">Berita</a>
                     </li>
                 </ul>
             </div>
@@ -101,11 +101,11 @@
                         </li>
                         <li class="d-flex align-items-center mb-2">
                             <i class="bi bi-whatsapp me-2"></i>
-                            <span>08112224563</span>
+                            <span>{{ $profilSekolah->kontak }}</span>
                         </li>
                         <li class="d-flex align-items-center mb-2">
                             <i class="bi bi-telephone-fill me-2"></i>
-                            <span>0265-546717</span>
+                            <span>0123-123456</span>
                         </li>
                         <li class="d-flex align-items-center mb-3">
                             <i class="bi bi-envelope-fill me-2"></i>

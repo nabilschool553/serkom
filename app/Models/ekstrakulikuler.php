@@ -18,6 +18,7 @@ class ekstrakulikuler extends Model
 
     protected $fillable = [
         'nama_eskul',
+        'slug',
         'pembina',
         'jadwal',
         'deskripsi',

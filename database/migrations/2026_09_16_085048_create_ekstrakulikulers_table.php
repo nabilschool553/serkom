@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ekstrakulikulers', function (Blueprint $table) {
             $table->uuid('id_ekstrakulikuler')->primary();
             $table->string('nama_eskul', 40);
+            $table->text('slug')->unique();
             $table->string('pembina', 40);
             $table->string('jadwal', 40);
             $table->text('deskripsi');

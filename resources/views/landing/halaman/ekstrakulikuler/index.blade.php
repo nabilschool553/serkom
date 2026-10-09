@@ -5,7 +5,7 @@
     <div class="container py-4">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="{{ route('landing') }}" class="text-decoration-none">Beranda</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('landing') }}#ekstrakulikuler" class="text-decoration-none">Beranda</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Eskul Sekolah</li>
             </ol>
         </nav>
@@ -16,22 +16,22 @@
         <div class="row g-4">
             @forelse($ekstrakulikulers as $ekstrakulikuler)
                 <div class="col-md-3 col-sm-6">
-                    <a href="{{ route('landing.halaman.ekstrakulikuler.detail', $ekstrakulikuler->id_ekstrakulikuler ) }}" class="text-decoration-none">
+                    <a href="{{ route('landing.halaman.ekstrakulikuler.detail', $ekstrakulikuler->slug ) }}" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden p-2">
                             <div class="rounded-4 overflow-hidden" style="height: 280px;">
                                 @if($ekstrakulikuler->gambar)
-                                    <img class="w-100 h-100 object-fit-cover" src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" alt="{{ $ekstrakulikuler->nama_ekstrakulikuler }}">
+                                    <img class="w-100 h-100 object-fit-cover" src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" alt="{{ $ekstrakulikuler->nama_eskul }}">
                                 @else
-                                    <img class="w-100 h-100 object-fit-cover" src="{{ asset('assets/img/default-guru.png') }}" alt="{{ $ekstrakulikuler->nama_ekstrakulikuler }}">
+                                    <img class="w-100 h-100 object-fit-cover" src="{{ asset('assets/img/default-guru.png') }}" alt="{{ $ekstrakulikuler->nama_eskul }}">
                                 @endif
                             </div>
 
                             <div class="card-body d-flex flex-column justify-content-between text-center px-2 pt-3 pb-2">
                                 <h5 class="card-title fw-bold text-dark mb-1" style="font-size: 1rem;">
-                                    {{ $ekstrakulikuler->nama_ekstrakulikuler }}
+                                    {{ $ekstrakulikuler->nama_eskul }}
                                 </h5>
                                 <p class="card-text text-muted mb-0" style="font-size: 0.85rem;">
-                                    {{ $ekstrakulikuler->deskripsi }}
+                                    {{ Str::limit($ekstrakulikuler->deskripsi, 50) }}
                                 </p>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="mt-5">
-            <a href="{{ route('landing') }}" class="btn btn-outline-secondary rounded-pill px-4">
+            <a href="{{ route('landing') }}#ekstrakulikuler" class="btn btn-outline-secondary rounded-pill px-4">
                 &larr; Kembali ke Beranda
             </a>
         </div>

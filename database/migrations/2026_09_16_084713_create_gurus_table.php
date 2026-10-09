@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('gurus', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nama_guru', 40);
+            $table->text('slug')->unique();
             $table->string('nip', 15);
             $table->string('mapel', 40);
             $table->string('foto', 100);

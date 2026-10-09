@@ -52,6 +52,7 @@ class GuruController extends Controller
         Guru::create([
             'id'        => (string) Str::uuid(),
             'nama_guru' => $request->nama_guru,
+            'slug'      => Str::slug($request->nama_guru),
             'nip'       => $request->nip,
             'mapel'     => $request->mapel,
             'foto'      => $fotoPath,

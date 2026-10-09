@@ -18,6 +18,7 @@ class Guru extends Model
 
     protected $fillable = [
         'nama_guru',
+        'slug',
         'nip',
         'mapel',
         'foto',

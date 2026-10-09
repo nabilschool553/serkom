@@ -1,4 +1,4 @@
-<div class="bg-light py-5" id="ekstrakurikuler">
+<div class="bg-light py-5" id="ekstrakulikuler">
     <div class="container p-5 text-center">
         <span class="text-primary fw-bold text-uppercase small">Ekstrakulikuler Sekolah Kami</span>
         <h2 class="fw-bold display-6 text-dark mt-2 mb-3">Pengembangan Minat & Bakat</h2>
@@ -11,24 +11,26 @@
         <div class="row g-4 mt-4 justify-content-center">
             @forelse($ekstrakulikulers as $ekstrakulikuler)
                 <div class="col-md-4 col-sm-6">
-                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden p-2">
-                        <div class="rounded-4 overflow-hidden" style="height: 280px;">
-                            @if($ekstrakulikuler->gambar)
-                                <img class="w-100 h-100 object-fit-cover" src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" alt="{{ $ekstrakulikuler->nama_eskul }}">
-                            @else
-                                <img class="w-100 h-100 object-fit-cover" src="{{ asset('assets/img/default-guru.png') }}" alt="{{ $ekstrakulikuler->nama_eskul }}">
-                            @endif
-                        </div>
+                    <a href="{{ route('landing.halaman.ekstrakulikuler.detail', $ekstrakulikuler->slug ) }}" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden p-2">
+                            <div class="rounded-4 overflow-hidden" style="height: 280px;">
+                                @if($ekstrakulikuler->gambar)
+                                    <img class="w-100 h-100 object-fit-cover" src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" alt="{{ $ekstrakulikuler->nama_eskul }}">
+                                @else
+                                    <img class="w-100 h-100 object-fit-cover" src="{{ asset('assets/img/default-guru.png') }}" alt="{{ $ekstrakulikuler->nama_eskul }}">
+                                @endif
+                            </div>
 
-                        <div class="card-body d-flex flex-column justify-content-between text-center px-2 pt-3 pb-2">
-                            <h5 class="card-title fw-bold text-dark mb-1" style="font-size: 1rem;">
-                                {{ $ekstrakulikuler->nama_eskul }}
-                            </h5>
-                            <p class="card-text text-muted mb-0" style="font-size: 0.85rem;">
-                                {{ $ekstrakulikuler->deskripsi }}
-                            </p>
+                            <div class="card-body d-flex flex-column justify-content-between text-center px-2 pt-3 pb-2">
+                                <h5 class="card-title fw-bold text-dark mb-1" style="font-size: 1rem;">
+                                    {{ $ekstrakulikuler->nama_eskul }}
+                                </h5>
+                                <p class="card-text text-muted mb-0" style="font-size: 0.85rem;">
+                                    {{ Str::limit($ekstrakulikuler->deskripsi, 50) }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @empty
                 <div class="col-12 text-center py-5">

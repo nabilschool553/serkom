@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Guru;       
-use App\Models\Siswa;     
-use App\Models\ekstrakulikuler;    
+use App\Models\Guru;
+use App\Models\Siswa;
+use App\Models\ekstrakulikuler;
 use App\Models\Berita;
+use App\Models\Galeri;
 
 class DashboardController extends Controller
 {
@@ -21,8 +22,10 @@ class DashboardController extends Controller
         $totalEskul = ekstrakulikuler::count();
         $totalBerita = Berita::count();
 
-        // Kirim data tersebut ke view dashboard
-        return view('admin.dashboard.index', compact('totalGuru', 'totalSiswa', 'totalEskul', 'totalBerita'));
+        $beritaTerbaru = Berita::latest()->take(3)->get();
+        $galeriTerbaru = Galeri::latest()->take(3)->get();
+
+        return view('admin.dashboard.index', compact('totalGuru','totalSiswa','totalEskul','totalBerita','beritaTerbaru','galeriTerbaru'));
     }
 
     /**
