@@ -45,7 +45,7 @@
         }
     </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="80">
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -63,19 +63,19 @@
                         <a class="nav-link active" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#profil">Profil</a>
+                        <a class="nav-link" href="#profil">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#Guru">Guru</a>
+                        <a class="nav-link" href="#Guru">Guru</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#berita">Berita</a>
+                        <a class="nav-link" href="#berita">Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#ekstrakulikuler">Ekstrakurikuler</a>
+                        <a class="nav-link" href="#ekstrakulikuler">Ekstrakurikuler</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#galeri">Galeri</a>
+                        <a class="nav-link" href="#galeri">Galeri</a>
                     </li>
                 </ul>
             </div>

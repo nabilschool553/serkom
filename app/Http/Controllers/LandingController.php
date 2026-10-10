@@ -14,10 +14,10 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $gurus            = Guru::take(4)->get();
-        $beritas          = Berita::take(3)->get();
-        $galeris          = Galeri::take(3)->get();
-        $ekstrakulikulers = Ekstrakulikuler::take(3)->get();
+        $gurus            = Guru::latest()->take(4)->get();
+        $beritas          = Berita::latest()->take(3)->get();
+        $galeris          = Galeri::latest()->take(3)->get();
+        $ekstrakulikulers = Ekstrakulikuler::latest()->take(3)->get();
         $profil_sekolah   = Profil_sekolah::first();
 
         $totalGuru   = Guru::count();
@@ -38,26 +38,26 @@ class LandingController extends Controller
 
     public function semuaGuru()
     {
-        $gurus = Guru::all();
+        $gurus = Guru::latest()->get();
         return view('landing.halaman.guru.index', compact('gurus'));
     }
 
 
     public function semuaBerita()
     {
-        $beritas = Berita::all();
+        $beritas = Berita::latest()->get();
         return view('landing.halaman.berita.index', compact('beritas'));
     }
 
     public function semuaEkstrakulikuler()
     {
-        $ekstrakulikulers = Ekstrakulikuler::all();
+        $ekstrakulikulers = Ekstrakulikuler::latest()->get();
         return view('landing.halaman.ekstrakulikuler.index', compact('ekstrakulikulers'));
     }
 
     public function semuaGaleri()
     {
-        $galeris = Galeri::all();
+        $galeris = Galeri::latest()->get();
         return view('landing.halaman.galeri.index', compact('galeris'));
     }
 

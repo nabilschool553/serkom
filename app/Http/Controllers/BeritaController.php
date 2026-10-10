@@ -20,7 +20,7 @@ class BeritaController extends Controller
         $berita = Berita::when($search, function ($query, $search) {
             $query->where('judul', 'like', "%{$search}%")
                   ->orWhere('isi', 'like', "%{$search}%");
-        })->latest()->paginate(10);
+        })->latest('tanggal')->paginate(10);
         return view('admin.berita.index', compact('berita'));
     }
 
